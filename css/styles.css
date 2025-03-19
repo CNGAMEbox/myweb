@@ -1,0 +1,569 @@
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alibaba PuHuiTi', 'Microsoft YaHei', sans-serif; /* 统一字体 */
+}
+
+/* 页面主体样式 */
+body {
+    position: relative;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    background: var(--deep-bg); /* 使用深色背景 */
+}
+
+/* 背景图片设置 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/123.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1; /* 将背景图片置于最底层 */
+    opacity: 0.1; /* 调整背景图片的透明度 */
+}
+
+/* 中国风深色系配色 */
+:root {
+    --primary-red: #d1433a;  /* 朱砂红 */
+    --deep-bg: #1a1a1a;      /* 深黑背景 */
+    --gold: #d4af37;         /* 鎏金 */
+    --card-bg: #252525;      /* 卡片背景 */
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+/* 主内容区 */
+main {
+    margin-top: 50px;
+    padding: 40px 20px;
+}
+
+/* 品牌展示区 */
+.hero-section {
+    position: relative;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-red);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(3px);
+    letter-spacing: 4px;
+}
+
+.hero-logo {
+    width: 400px;
+    filter: drop-shadow(0 0 20px rgba(209,67,58,0.3));
+}
+
+/* 水平游戏卡片 */
+.card-carousel {
+    max-width: 1200px;
+    margin: 4rem auto;
+    overflow: visible;
+}
+
+.card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+    overflow: visible;
+    scrollbar-width: none; /* 隐藏 Firefox 滚动条 */
+    -ms-overflow-style: none; /* 隐藏 IE 和 Edge 滚动条 */
+}
+
+.card-wrapper::-webkit-scrollbar {
+    display: none; /* 隐藏 WebKit 浏览器的滚动条 */
+}
+
+.card-wrapper-h {
+    display: flex; /* 改为flex布局 */
+    overflow-x: auto; /* 启用水平滚动 */
+    scroll-snap-type: x mandatory; /* 滚动对齐效果 */
+    -webkit-overflow-scrolling: touch; /* 移动端顺滑滚动 */
+    padding: 20px 0;
+    gap: 2rem;
+    scrollbar-width: thin; /* 细滚动条 */
+    scrollbar-color: var(--primary-red) rgba(255,255,255,0.1);
+}
+
+.game-card-h {
+    flex: 0 0 300px; /* 固定卡片宽度 */
+    scroll-snap-align: start; /* 滚动对齐 */
+    height: 380px; /* 统一高度 */
+    margin-bottom: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.carousel-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-card {
+    margin-top: -30px;
+    width: 100%; /* 确保卡片占满网格单元格 */
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    /* 移除flex相关属性 */
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-cover {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary-red);
+}
+
+/* 双栏布局 */
+.feature-columns {
+    max-width: 1200px;
+    height: 400px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+/* 新作速递区块 */
+.new-releases {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.release-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.release-item {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.release-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.release-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    color: #fff;
+}
+
+.release-text h3 {
+    margin-bottom: 0.5rem;
+}
+
+.release-text p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.release-item h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+}
+
+.release-item p {
+    color: #aaa;
+}
+
+/* 轮播控制按钮 */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 90%;
+    left: 5%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    background: var(--primary-red);
+}
+
+/* 留言板 */
+.message-board {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 返回顶部按钮 */
+.top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 1001 !important;
+    font-family: 'Alibaba PuHuiTi', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.top-button.show {
+    opacity: 0.8 !important;
+}
+
+.top-button:hover {
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .feature-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-card {
+        flex: 0 0 45%;
+    }
+    
+    .hero-logo {
+        width: 80%;
+    }
+}
+
+/* 导航链接样式 */
+.nav-link {
+    position: relative;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #fff !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
+
+.nav-content > div[style] {
+    height: 100%;
+    align-items: stretch;
+}
+
+.nav-link:hover {
+    background: #ff6b00;
+}
+
+/* 下拉菜单 */
+.year-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(26, 26, 26, 0.95);
+    min-width: 100%;
+    border: 1px solid rgba(255,255,255,0.1);
+    flex-direction: column;
+}
+
+.year-dropdown a {
+    display: block;
+    padding: 12px 15px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--primary-red);
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.year-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.year-dropdown a:hover {
+    background: #ff6b00;
+}
+
+.dropdown-container:hover .year-dropdown {
+    display: block;
+}
+
+.year-item {
+    padding: 12px 15px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--primary-red);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+/* 新作页面卡片 */
+.game-list2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1280px; /* 增加容器宽度 */
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* 调整卡片尺寸计算 */
+.game-item {
+    flex: 0 0 calc(25% - 1.5rem); /* 精确计算四等分 */
+    min-width: 280px; /* 保持最小宽度 */
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.game-item:hover {
+    transform: translateY(-5px);
+}
+
+.game-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary-red);
+}
+
+.game-info {
+    padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-title {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    min-height: 3em;
+}
+
+.game-description {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+@media (max-width: 1280px) {
+    .game-item {
+        flex: 0 0 calc(33.33% - 1.5rem); /* 三列布局 */
+    }
+}
+
+@media (max-width: 1024px) {
+    .game-item {
+        flex: 0 0 calc(50% - 1rem); /* 两列布局 */
+    }
+}
+
+@media (max-width: 768px) {
+    .game-item {
+        flex: 0 0 100%; /* 单列布局 */
+    }
+}
+
+/* 关于内容排版优化 */
+.about-content {
+    max-width: 800px;
+    height: 370px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.about-content h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.about-text {
+    margin-top: 80px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    letter-spacing: 0.8px;
+    color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: 0 15px;
+    }
+    
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.7;
+        text-align: left;
+    }
+}
+/* 页脚设计 */
+.site-footer {
+    background: var(--deep-bg);
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 游戏卡片容器 */
+.game-card-h {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  /* 通用图片容器样式 */
+  .game-card-image {
+    position: relative;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* 游戏封面图片 */
+  .game-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* 热销标签样式 */
+  .label-hot {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--primary-red);
+    padding: 6px 16px;
+    border-radius: 24px;
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  /* 卡片内容容器 */
+  .card-content {
+    padding: 1.5rem;
+    margin-top: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  /* 游戏标题样式 */
+  .card-title {
+    font-size: 1.5em;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1.1;
+    font-weight: bold;
+  }
+  
+  /* 游戏描述样式 */
+  .card-description {
+    color: #aaa;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+    line-height: 1.6;
+  }

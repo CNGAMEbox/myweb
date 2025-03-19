@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国游奇匣 | 国产精品游戏典藏</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" style="font-size: 1.5rem; color: var(--primary-red); text-decoration: none;">国游奇匣</a>
+            <div style="display: flex; gap: 0; height: 100%;">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="game-library.html" class="nav-link">游戏库</a>
+                <a href="new-releases.html" class="nav-link">新作</a>
+                <a href="about.html" class="nav-link">关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 品牌展示区 -->
+        <section class="hero-section">
+            <img src="image/logo.png" alt="国游奇匣" class="hero-logo">
+            <p class="hero-description">探索国产精品游戏的无限魅力</p>
+        </section>
+
+        <!-- 水平游戏卡片 -->
+        <section class="card-carousel">
+            <h2 class="carousel-title">2024热门游戏</h2>
+            <div class="card-wrapper-h">
+                <!-- 黑神话：悟空 -->
+                <div class="game-card-h">
+                  <div class="game-card-image">
+                    <img src="image/wukong.jpg" class="game-cover">
+                    <span class="label-hot">年度热销</span>
+                  </div>
+                  <div class="card-content">
+                    <h3 class="card-title">黑神话：悟空</h3>
+                    <p class="card-description">动作角色扮演</p>
+                  </div>
+                </div>
+              
+                <!-- 饿殍：明末千里行 -->
+                <div class="game-card-h">
+                  <div class="game-card-image">
+                    <img src="image/epiao.jpg" class="game-cover">
+                  </div>
+                  <div class="card-content">
+                    <h3 class="card-title">饿殍：明末千里行</h3>
+                    <p class="card-description">国历史题材生存冒险</p>
+                  </div>
+                </div>
+              
+                <!-- 灵魂面甲 -->
+                <div class="game-card-h">
+                  <div class="game-card-image">
+                    <img src="image/soul.jpg" class="game-cover">
+                  </div>
+                  <div class="card-content">
+                    <h3 class="card-title">灵魂面甲</h3>
+                    <p class="card-description">科幻开放世界生存</p>
+                  </div>
+                </div>
+              
+                <!-- 山河旅探 -->
+                <div class="game-card-h">
+                  <div class="game-card-image">
+                    <img src="image/shanhe.jpg" class="game-cover">
+                  </div>
+                  <div class="card-content">
+                    <h3 class="card-title">山河旅探</h3>
+                    <p class="card-description">古风悬疑解谜</p>
+                  </div>
+                </div>
+              
+                <!-- 中国式网游 -->
+                <div class="game-card-h">
+                  <div class="game-card-image">
+                    <img src="image/china.jpg" class="game-cover">
+                  </div>
+                  <div class="card-content">
+                    <h3 class="card-title">中国式网游</h3>
+                    <p class="card-description">模拟经营</p>
+                  </div>
+                </div>
+              </div>
+        </section>
+
+        <!-- 双栏内容区 -->
+        <div class="feature-columns">
+            
+            <!-- 修改后的最新作品轮播板块 -->
+            <section class="new-releases">
+                <h2 style="color: var(--primary-red); margin-bottom: 1.5rem;">新作速递</h2>
+                <div class="release-carousel">
+                    <div class="release-item">
+                        <img src="image/newgame/mingmo.jpg" alt="黑神话：悟空" class="release-image">
+                        <div class="release-text">
+                            <h3>明末：渊虚之羽</h3>
+                            <p>2025年内发售 | 国风克苏鲁魂系ARPG</p>
+                        </div>
+                    </div>
+                    <div class="release-item">
+                        <img src="image/newgame/shaohe.jpg" alt="暖雪" class="release-image">
+                        <div class="release-text">
+                            <h3>昭和米国物语</h3>
+                            <p>2025年内发售 | 架空历史荒诞RPG</p>
+                        </div>
+                    </div>
+                    <div class="release-item">
+                        <img src="image/newgame/shiluo.jpg" alt="戴森球计划" class="release-image">
+                        <div class="release-text">
+                            <h3>失落之魂</h3>
+                            <p>2025年5月30发售 | 科幻半开放世界ARPG</p>
+                        </div>
+                    </div>
+                    <div class="release-item">
+                        <img src="image/newgame/milu.jpg" alt="边境" class="release-image">
+                        <div class="release-text">
+                            <h3>迷鹿</h3>
+                            <p>Demo阶段 | 现代乙女AVG</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 轮播控制按钮 -->
+                <div class="carousel-controls">
+                
+                </div>
+            </section>
+
+            <section class="message-board">
+                <h2 class="section-title">玩家交流</h2>               
+                <!-- 新增留言列表 -->
+                <input 
+                    type="text" 
+                    id="message-username"
+                    placeholder="昵称（可选）"
+                    style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; background: #333; border: none; color: white;"
+                >
+                
+                <!-- 修改后的输入框 -->
+                <textarea
+                    style="width: 100%; height: 150px; background: #333; border: none; padding: 1rem; color: #fff; resize: none"
+                    placeholder="没找到您喜欢的游戏？请留言和我们分享..."
+                ></textarea>
+                
+                <button 
+                    style="background: var(--primary-red); color: #fff; border: none; padding: 0.8rem 2rem; margin-top: 1rem; cursor: pointer;"
+                >
+                    提交留言
+                </button>
+            </section>
+    </main>
+
+    <!-- 新增页脚 -->
+    <footer class="site-footer">
+      <div class="footer-content">
+          <p>项目地址：https://github.com/CNGAMEbox/myweb.github.io.git</p>
+          <p>技术栈：HTML & CSS</p>
+          <p>最后更新：2025年3月19日</p>
+      </div>
+    </footer>
+    
+    <button class="top-button" title="返回顶部">↑</button>
+</body>
+</html>
